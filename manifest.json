@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Argentina Taxes",
-  "version": "1.0",
+  "version": "0.1",
   "description": "Un calculador de impuestos de Argentina para algunas páginas",
   "icons": {
     "128": "taxes_128.png",
