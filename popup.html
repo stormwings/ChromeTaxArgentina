@@ -6,7 +6,109 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1 id="greetings">Hello!</h1>
-  <input type="text" id="name" />
+  <div style="display: none;" class="game_area_purchase_game_wrapper">
+    <div class="apphub_HomeHeaderContent">
+
+      <div class="apphub_HeaderStandardTop">
+                              <div class="apphub_OtherSiteInfo">
+    
+                        
+                    <a class="btnv6_blue_hoverfade btn_medium" href="https://steamcommunity.com/app/1086940">
+                        <span>Community Hub</span>
+                    </a>
+                </div>
+                 <div class="apphub_AppIcon"><img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/1086940/d866cae7ea1e471fdbc206287111f1b642373bd9.jpg"><div class="overlay"></div></div>
+        <div class="apphub_AppName">Baldur's Gate 3</div>
+        <div style="clear: both"></div>
+    
+      </div>
+    
+    </div>
+		<div class="game_area_purchase_game">
+      <form name="add_to_cart_365345" action="https://store.steampowered.com/cart/" method="POST">
+        <input type="hidden" name="snr" value="1_5_9__403">
+        <input type="hidden" name="originating_snr" value="1_store-navigation__">
+        <input type="hidden" name="action" value="add_to_cart">
+        <input type="hidden" name="sessionid" value="f03465efa397446dc15ee3e9">
+        <input type="hidden" name="subid" value="365345">
+      </form>
+      <div class="game_area_purchase_platform"><span class="platform_img win"></span><span class="platform_img mac"></span></div>
+      <h1>Buy Baldur's Gate 3</h1>
+                              
+      <div class="game_purchase_action">
+                                  <div class="game_purchase_action_bg">
+                                <div class="game_purchase_price price" data-price-final="219900">
+                ARS$ 2.199,00						</div>
+                            <div class="btn_addtocart">
+                                                                  <a class="btn_green_steamui btn_medium" href="javascript:addToCart(365345);" id="btn_add_to_cart_365345">
+                  <span>Add to Cart</span>
+                </a>
+                                      
+          </div>
+                </div>
+      </div>
+    </div>
+  </div>
+  <h1 id="greetings" style="margin-top: 0px;">Steam</h1>
+  <h2 id="selected_item">
+    Buscando...
+  </h1>
+  <div id="input-container">
+    <!-- <input type="text" id="
+      name" /> -->
+  </div>
+
+  <div class="container">
+    <div class="tax_container tax_iva">
+      <div class="amount">
+        IVA:
+        <span class="value">
+          Calculando...
+        </span>
+      </div>
+      <div class="description">
+        (21%)
+      </div>
+    </div>
+    <div class="tax_container tax_pais">
+      <div class="amount">
+        Impuesto PAIS:
+        <span class="value">
+          Calculando...
+        </span>
+      </div>
+      <div class="description">
+        (8%, ya que al servicio digital tributa menos)
+      </div>
+    </div>
+    <div class="tax_container tax_ret">
+      <div class="amount">
+        Retención de ganancias:
+        <span class="value">
+          Calculando...
+        </span>
+      </div>
+      <div class="description">
+        (35%)
+      </div>
+    </div>
+    <div class="tax_container tax_total" style="margin-top: 20px;">
+      <div class="amount">
+        Total en Impuestos:
+        <span class="value">
+          Calculando...
+        </span>
+      </div>
+    </div>
+    <div class="description"">
+      Total de 64% sobre el precio final.
+    </div>
+    <div id="total_final" style="margin-top: 20px; text-decoration: underline;">
+      Precio Final: Calculando...
+    </div>
+  </div>
+  <div class="footer" style="margin-top: 20px;">
+    Es resumen, se deberan pagar $ 164 por cada $ 100 gastados.
+  </div>
 </body>
 </html>

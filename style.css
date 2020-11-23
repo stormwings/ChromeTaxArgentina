@@ -1,3 +1,52 @@
+:root {
+  --background: #171a21;
+  --primary: #66c0f4;
+  --secondary: #1b2838;
+  --container: #2a475e;
+  --white: #c7d5e0;
+}
+
+html {
+  background-color: var(--background);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  padding: 20px;
+  min-width: 400px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  color: var(--primary);
+}
+
+.footer {
+  color: var(--white);
+}
+
+#total_final {
+  color: var(--primary);
+}
+
+.tax_container {
+  display: flex;
+}
+
+.amount {
+  margin-right: 5px;
+}
+
+.description {
+  font-size: 11px;
+  color: #74AE2E;
+}
+
 #greetings {
-  color: blue;
+  color: var(--white);
+}
+
+#selected_item {
+  color: var(--white);
 }
