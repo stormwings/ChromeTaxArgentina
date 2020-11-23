@@ -11,5 +11,8 @@
   "browser_action": {
     "default_icon": "taxes_32.png",
     "default_popup": "popup.html"
-  }
+  },
+  "permissions": [
+    "activeTab"
+  ]
 }
