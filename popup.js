@@ -1,30 +1,43 @@
 window.onload = function() {
-  // const $inputPrice = document.getElementById('manual_amount_input');
+  const $inputPrice = document.getElementById('manual_amount_input');
   const $itemName = document.getElementsByClassName('tax__header--page_title')[0];
   const $itemPrice = document.getElementsByClassName('tax__header--find_item')[0];
-  let $articlePriceContainer = null;
+  // let $articlePriceContainer = null;
+
+  // dom result items
+
+  const $tax_iva = document.querySelector('.tax_iva > .amount > .amount--value');
+  const $tax_pais = document.querySelector('.tax_pais > .amount > .amount--value');
+  const $tax_ret = document.querySelector('.tax_ret > .amount > .amount--value');
+  const $tax_total = document.querySelector('.tax_total > .amount > .amount--value');
+  const $total_final = document.querySelector('#total_final');
 
   // show amounts
 
-  setTimeout(() => {
-    const articlePrice = transformToFiat($articlePriceContainer);
-    
-    $itemPrice.innerHTML = `$${articlePrice}`;
+  const setPrices = (articlePrice = 0) => {
+    const formatPrice = (value, tax) => `$${(value * (tax || 1)).toFixed(2)}`
 
-    document.querySelector('.tax_iva > .amount > .amount--value').innerHTML = `$${(articlePrice * 0.21).toFixed(2)}`;
-    document.querySelector('.tax_pais > .amount > .amount--value').innerHTML = `$${(articlePrice * 0.08).toFixed(2)}`;
-    document.querySelector('.tax_ret > .amount > .amount--value').innerHTML = `$${(articlePrice * 0.35).toFixed(2)}`;
-    document.querySelector('.tax_total > .amount > .amount--value').innerHTML = `$${(articlePrice * 0.64).toFixed(2)}`;
-    document.querySelector('#total_final').innerHTML = `Precio Final: $${articlePrice + (articlePrice * 0.64)}`;
+    $itemPrice.textContent = formatPrice(articlePrice);
+    $tax_iva.textContent = formatPrice(articlePrice, 0.21);
+    $tax_pais.textContent = formatPrice(articlePrice, 0.08);
+    $tax_ret.textContent = formatPrice(articlePrice, 0.35);
+    $tax_total.textContent = formatPrice(articlePrice, 0.64);
+
+    const total = parseFloat(articlePrice) + articlePrice * 0.64;
+    $total_final.textContent = `Precio Final: ${formatPrice(total)}`;
+  }
+
+  setTimeout(() => {
+    setPrices();
   }, 700)
 
   // events
   
-  // $inputPrice.addEventListener("keyup", event => {
-  //   const { target: { value } } = event;
+  $inputPrice.addEventListener("keyup", event => {
+    const { target: { value } } = event;
 
-  //   console.log(value);
-  // });
+    setPrices(value);
+  });
 
   chrome.tabs.query({active: true}, function(tabs) {
     chrome.tabs.executeScript(tabs[0].id, {
@@ -32,11 +45,11 @@ window.onload = function() {
     }, (results) => $itemName.innerHTML = results);
   });
 
-  chrome.tabs.query({active: true}, function(tabs) {
-    chrome.tabs.executeScript(tabs[0].id, {
-      code: 'document.querySelector(".price").textContent'
-    }, (results) => $articlePriceContainer = results ? results : null);
-  });
+  // chrome.tabs.query({active: true}, function(tabs) {
+  //   chrome.tabs.executeScript(tabs[0].id, {
+  //     code: 'document.querySelector(".price").textContent'
+  //   }, (results) => $articlePriceContainer = results ? results : null);
+  // });
 }
 
 // helper utils
