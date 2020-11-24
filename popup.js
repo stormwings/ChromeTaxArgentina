@@ -36,7 +36,15 @@ window.onload = function() {
   $inputPrice.addEventListener("keyup", event => {
     const { target: { value } } = event;
 
-    setPrices(value);
+    const regex = RegExp(/^[0-9]{1,9}([,.][0-9]{1,2})?$/);
+
+    const number = value.replace(',', '.')
+
+    if (regex.test(number)) {
+      setPrices(number);
+    } else {
+      setPrices();
+    }
   });
 
   chrome.tabs.query({active: true}, function(tabs) {
